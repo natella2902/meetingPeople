@@ -1,32 +1,15 @@
 import React from 'react'
-import {
-    selectedFillIcon,
-    selectedEmptyIcon,
-    styleForSelectedIcon
-} from './utils'
 import propTypes from 'prop-types'
 
-const Bookmark = ({ status, _id, onStatusChange }) => {
-    const renderBookmark = (status) => {
-        if (status) {
-            return selectedFillIcon()
-        }
-        return selectedEmptyIcon()
-    }
+const BookMark = ({ status, ...rest }) => {
     return (
-        <button
-            style={styleForSelectedIcon()}
-            onClick={() => onStatusChange(_id, status)}
-        >
-            {renderBookmark(status)}
+        <button {...rest}>
+            <i className={'bi bi-bookmark' + (status ? '-heart-fill' : '')}></i>
         </button>
     )
 }
+BookMark.propTypes = {
+    status: propTypes.bool
 
-Bookmark.propTypes = {
-    status: propTypes.bool.isRequired,
-    _id: propTypes.string.isRequired,
-    onStatusChange: propTypes.func.isRequired
 }
-
-export default Bookmark
+export default BookMark

@@ -1,7 +1,7 @@
 import React from 'react'
 import { getBasicClasses } from './utils'
 import Quality from './quality'
-import Bookmark from './bookmark'
+import BookMark from './bookmark'
 import propTypes from 'prop-types'
 
 const User = ({
@@ -27,7 +27,8 @@ const User = ({
                 <td>{completedMeetings}</td>
                 <td>{rate} / 5</td>
                 <td>
-                    <Bookmark _id={_id} {...rest} />
+                    <BookMark
+                    />
                 </td>
                 <td>
                     <button
@@ -49,7 +50,10 @@ User.propTypes = {
     profession: propTypes.object.isRequired,
     completedMeetings: propTypes.number.isRequired,
     rate: propTypes.number.isRequired,
-    onDelete: propTypes.func.isRequired
+    onDelete: propTypes.func.isRequired,
+    status: propTypes.bool,
+    handleToggleBookMark: propTypes.func
+
 }
 
 export default User
