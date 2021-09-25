@@ -3,6 +3,7 @@ import { getBasicClasses } from './utils'
 import Quality from './quality'
 import BookMark from './bookmark'
 import propTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const User = ({
     _id,
@@ -17,7 +18,7 @@ const User = ({
     return (
         <>
             <tr>
-                <td>{name}</td>
+                <td><Link to={'/user'}>{name}</Link></td>
                 <td>
                     {qualities.map((quality) => (
                         <Quality key={quality._id} {...quality} />

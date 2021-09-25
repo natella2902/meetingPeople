@@ -4,10 +4,11 @@ import Bookmark from './bookmark'
 import { getBasicClasses } from './utils'
 import QualitiesList from './qualitiesList'
 import Table from './table'
+import UserName from './userName'
 
 const UserTable = ({ users, selectedSort, onToggleBookMark, onSort, onDelete, ...rest }) => {
     const columns = {
-        name: { path: 'name', name: 'Имя' },
+        name: { path: 'name', name: 'Имя', component: (user) => (<UserName user={user}/>) },
         qualities: { name: 'Качества', component: (user) => (<QualitiesList qualities={user.qualities}/>) },
         profession: { path: 'profession.name', name: 'Профессия' },
         completedMeetings: { path: 'completedMeetings', name: 'Встретился, раз' },
