@@ -4,7 +4,7 @@ import QualitiesList from './qualitiesList'
 import { useHistory } from 'react-router-dom'
 import api from '../api'
 
-const CropUser = ({ id }) => {
+const UserPage = ({ id }) => {
     const [user, setUser] = useState()
     useEffect(() => {
         api.users.getById(id).then((data) => setUser(data))
@@ -29,10 +29,10 @@ const CropUser = ({ id }) => {
     )
 }
 
-CropUser.propTypes = {
+UserPage.propTypes = {
     user: propTypes.object,
     name: propTypes.string,
     id: propTypes.string
 }
 
-export default CropUser
+export default UserPage
