@@ -18,7 +18,9 @@ const User = ({
     return (
         <>
             <tr>
-                <td><Link to={'/user'}>{name}</Link></td>
+                <td>
+                    <Link to={'/user'}>{name}</Link>
+                </td>
                 <td>
                     {qualities.map((quality) => (
                         <Quality key={quality._id} {...quality} />
@@ -28,8 +30,7 @@ const User = ({
                 <td>{completedMeetings}</td>
                 <td>{rate} / 5</td>
                 <td>
-                    <BookMark
-                    />
+                    <BookMark />
                 </td>
                 <td>
                     <button
@@ -54,7 +55,6 @@ User.propTypes = {
     onDelete: propTypes.func.isRequired,
     status: propTypes.bool,
     handleToggleBookMark: propTypes.func
-
 }
 
 export default User

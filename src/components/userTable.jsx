@@ -1,17 +1,36 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import Bookmark from './bookmark'
-import { getBasicClasses } from './utils'
 import QualitiesList from './qualitiesList'
+import { getBasicClasses } from './utils'
 import Table from './table'
 import { Link } from 'react-router-dom'
 
-const UserTable = ({ users, selectedSort, onToggleBookMark, onSort, onDelete }) => {
+const UserTable = ({
+    users,
+    selectedSort,
+    onToggleBookMark,
+    onSort,
+    onDelete,
+    ...rest
+}) => {
     const columns = {
-        name: { path: 'name', name: 'Имя', component: (user) => (<Link to={`/users/${user._id}`}>{user.name}</Link>) },
-        qualities: { name: 'Качества', component: (user) => (<QualitiesList qualities={user.qualities}/>) },
+        name: {
+            path: 'name',
+            name: 'Имя',
+            component: (user) => (
+                <Link to={`/users/${user._id}`}>{user.name}</Link>
+            )
+        },
+        qualities: {
+            name: 'Качества',
+            component: (user) => <QualitiesList qualities={user.qualities} />
+        },
         profession: { path: 'profession.name', name: 'Профессия' },
-        completedMeetings: { path: 'completedMeetings', name: 'Встретился, раз' },
+        completedMeetings: {
+            path: 'completedMeetings',
+            name: 'Встретился, раз'
+        },
         rate: { path: 'rate', name: 'Оценка' },
         bookmark: {
             path: 'bookmark',
@@ -19,8 +38,9 @@ const UserTable = ({ users, selectedSort, onToggleBookMark, onSort, onDelete }) 
             component: (user) => (
                 <Bookmark
                     status={user.bookmark}
-                    onClick={ () => onToggleBookMark(user._id)}
-                />)
+                    onClick={() => onToggleBookMark(user._id)}
+                />
+            )
         },
         delete: {
             component: (user) => (

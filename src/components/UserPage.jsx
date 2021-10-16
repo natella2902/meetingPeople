@@ -16,15 +16,25 @@ const UserPage = ({ id }) => {
     return (
         <>
             { user
-                ? <>
-                    <h2>{ user.name }</h2>
-                    <h3>Профессия: {user.profession.name}</h3>
-                    <h4>completedMeetings: {user.completedMeetings}</h4>
-                    <h4>{<QualitiesList qualities={user.qualities}/>}</h4>
-                    <h3>rate: {user.rate}</h3>
-                    <button className="btn bg-primary" type={'button'} onClick={onHandleClick}>All users</button>
-                </>
-                : 'Loading...'}
+                ? (
+                    <>
+                        <h2>{user.name}</h2>
+                        <h3>Профессия: {user.profession.name}</h3>
+                        <h4>completedMeetings: {user.completedMeetings}</h4>
+                        <h4>{<QualitiesList qualities={user.qualities} />}</h4>
+                        <h3>rate: {user.rate}</h3>
+                        <button
+                            className="btn bg-primary"
+                            type={'button'}
+                            onClick={onHandleClick}
+                        >
+                            All users
+                        </button>
+                    </>
+                )
+                : (
+                    'Loading...'
+                )}
         </>
     )
 }
