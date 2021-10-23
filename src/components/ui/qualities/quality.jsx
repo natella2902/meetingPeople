@@ -1,5 +1,5 @@
 import React from 'react'
-import { getBasicClasses } from './utils'
+import { getBasicClasses } from '../../utils'
 import propTypes from 'prop-types'
 
 const Quality = ({ color, name }) => {

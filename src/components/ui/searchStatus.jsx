@@ -1,5 +1,5 @@
 import React from 'react'
-import { getBasicClasses, renderPhrase } from './utils'
+import { getBasicClasses, renderPhrase } from '../utils'
 import propTypes from 'prop-types'
 
 const SearchStatus = ({ peopleQuantity }) => {

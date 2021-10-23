@@ -1,7 +1,7 @@
 import React from 'react'
-import { getBasicClasses } from './utils'
-import Quality from './quality'
-import BookMark from './bookmark'
+import { getBasicClasses } from '../utils'
+import Quality from '../ui/qualities'
+import BookMark from '../common/bookmark'
 import propTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 

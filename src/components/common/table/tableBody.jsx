@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import _ from 'lodash'
 
-const BodyTable = ({ data, columns }) => {
+const TableBody = ({ data, columns }) => {
     const renderContent = (item, column) => {
         if (columns[column].component) {
             const component = columns[column].component
@@ -26,9 +26,9 @@ const BodyTable = ({ data, columns }) => {
     )
 }
 
-BodyTable.propTypes = {
+TableBody.propTypes = {
     data: propTypes.array.isRequired,
     columns: propTypes.object.isRequired
 }
 
-export default BodyTable
+export default TableBody

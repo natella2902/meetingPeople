@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import Pagination from './pagination'
-import { paginate } from '../utils/paginate'
-import api from '../api'
+import Pagination from '../../common/pagination'
+import { paginate } from '../../../utils/paginate'
+import api from '../../../api'
 import propTypes from 'prop-types'
 import _ from 'lodash'
-import GroupList from './groupList'
-import SearchStatus from './searchStatus'
-import UserTable from './userTable'
-import SearchUsers from './searchUsers'
+import GroupList from '../../common/groupList'
+import SearchStatus from '../../ui/searchStatus'
+import UserTable from '../../ui/userTable'
+import SearchUsers from '../../ui/searchUsers'
 
-const UserList = () => {
+const UsersListPage = () => {
     const pageSize = 6
     const [currentPage, setCurrentPage] = useState(1)
     const [professions, setProfessions] = useState()
@@ -59,10 +59,16 @@ const UserList = () => {
     if (users) {
         let filteredUsers = users
         if (selectedProf) {
-            filteredUsers = users.filter((user) => JSON.stringify(user.profession) === JSON.stringify(selectedProf))
+            filteredUsers = users.filter(
+                (user) =>
+                    JSON.stringify(user.profession) ===
+                    JSON.stringify(selectedProf)
+            )
         }
         if (searchInput) {
-            filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchInput))
+            filteredUsers = users.filter((user) =>
+                user.name.toLowerCase().includes(searchInput)
+            )
         }
         const count = filteredUsers.length
         const sortedUsers = _.orderBy(
@@ -90,7 +96,7 @@ const UserList = () => {
                 )}
                 <div className="d-flex flex-column w-100">
                     <SearchStatus peopleQuantity={count} />
-                    <SearchUsers onChange={handleChange}/>
+                    <SearchUsers onChange={handleChange} />
                     {count > 0 && (
                         <UserTable
                             users={usersCrop}
@@ -115,10 +121,10 @@ const UserList = () => {
     return 'Loading...'
 }
 
-UserList.propTypes = {
+UsersListPage.propTypes = {
     user: propTypes.object,
     users: propTypes.array,
     onToggleBookMark: propTypes.func
 }
 
-export default UserList
+export default UsersListPage

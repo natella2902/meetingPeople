@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavBar = () => {
+const Main = () => {
     return (
         <>
             <h2>Main page</h2>
@@ -8,4 +8,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default Main

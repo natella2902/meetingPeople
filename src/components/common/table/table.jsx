@@ -1,13 +1,12 @@
 import React from 'react'
-import HeaderTable from './headerTable'
-import BodyTable from './bodyTable'
 import propTypes from 'prop-types'
+import { TableHeader, TableBody } from './index'
 
 const Table = ({ onSort, selectedSort, columns, data }) => {
     return (
         <table className="table">
-            <HeaderTable {...{ onSort, selectedSort, columns }} />
-            <BodyTable {...{ data, columns }} />
+            <TableHeader {...{ onSort, selectedSort, columns }} />
+            <TableBody {...{ data, columns }} />
         </table>
     )
 }

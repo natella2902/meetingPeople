@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-const HeaderTable = ({ onSort, selectedSort, columns }) => {
+const TableHeader = ({ onSort, selectedSort, columns }) => {
     const HandleSort = (item) => {
         if (selectedSort.path === item) {
             onSort({
@@ -52,10 +52,10 @@ const HeaderTable = ({ onSort, selectedSort, columns }) => {
     )
 }
 
-HeaderTable.propTypes = {
+TableHeader.propTypes = {
     onSort: propTypes.func.isRequired,
     selectedSort: propTypes.object.isRequired,
     columns: propTypes.object.isRequired
 }
 
-export default HeaderTable
+export default TableHeader
