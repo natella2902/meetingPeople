@@ -42,7 +42,7 @@ RadioField.propTypes = {
     label: propTypes.string.isRequired,
     options: propTypes.array.isRequired,
     name: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
+    value: propTypes.string,
     onChange: propTypes.func.isRequired
 }
 export default RadioField

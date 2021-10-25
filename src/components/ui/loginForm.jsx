@@ -75,7 +75,7 @@ const LoginForm = () => {
                 value={data.stayOn}
                 onChange={handleChange}
             >
-                <p>Оставаится в <a href='#'>системе</a></p>
+                <p>Оставаться в <a href='#'>системе</a></p>
             </CheckBoxField>
             <button
                 disabled={!isValid}

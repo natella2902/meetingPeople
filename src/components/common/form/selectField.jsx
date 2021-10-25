@@ -24,7 +24,7 @@ const SelectField = ({
             <select
                 className={getSelectClasses()}
                 id="validationCustom04"
-                value={value}
+                value={value._id}
                 name={name}
                 onChange={HandleChange}
             >
@@ -46,7 +46,7 @@ const SelectField = ({
 SelectField.propTypes = {
     label: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
-    value: propTypes.string,
+    value: propTypes.oneOfType([propTypes.object, propTypes.string]),
     onChange: propTypes.func.isRequired,
     defaultOption: propTypes.string.isRequired,
     options: propTypes.oneOfType([propTypes.object, propTypes.array]),

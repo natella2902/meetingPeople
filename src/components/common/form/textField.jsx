@@ -53,7 +53,7 @@ TextField.propTypes = {
     label: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
     type: propTypes.string.isRequired,
-    value: propTypes.string.isRequired,
+    value: propTypes.string,
     onChange: propTypes.func.isRequired,
     error: propTypes.string
 }

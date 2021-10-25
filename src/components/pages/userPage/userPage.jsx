@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import propTypes from 'prop-types'
 import Qualities from '../../ui/qualities'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import api from '../../../api'
 
 const UserPage = ({ id }) => {
@@ -16,7 +16,7 @@ const UserPage = ({ id }) => {
     return (
         <>
             { user
-                ? (<>
+                ? (<div className="mt-4 ms-4">
                     <h2>{user.name}</h2>
                     <h3>Профессия: {user.profession.name}</h3>
                     <h4>completedMeetings: {user.completedMeetings}</h4>
@@ -29,7 +29,8 @@ const UserPage = ({ id }) => {
                     >
                         All users
                     </button>
-                </>
+                    <Link className='btn btn-secondary' to={`/users/${id}/edit`}>Изменить</Link>
+                </div>
                 )
                 : (
                     'Loading...'
