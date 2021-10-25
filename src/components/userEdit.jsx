@@ -21,16 +21,12 @@ const UserEdit = () => {
     const [professions, setProfessions] = useState()
     const [qualities, setQualities] = useState()
     useEffect(() => {
+        api.users.getById(userId).then((data) => setData(data), [])
+    }, [])
+    useEffect(() => {
         api.professions.fetchAll().then((data) => setProfessions(data), [])
         api.qualities.fetchAll().then((data) => setQualities(data), [])
-        console.log(qualities)
     })
-    useEffect(() => {
-        if (dataLocalStorage) {
-            const selectUser = JSON.parse(dataLocalStorage).filter(user => user._id === userId)
-            setData(...selectUser)
-        }
-    }, [])
     const handleSubmit = (e) => {
         e.preventDefault()
         if (dataLocalStorage) {
@@ -46,6 +42,10 @@ const UserEdit = () => {
             const valueProf = professions.filter(prof => prof._id === target.value)[0]
             setData((prevState) => ({
                 ...prevState, [target.name]: valueProf
+            }))
+        } else if (target.qualities) {
+            setData((prevState) => ({
+                ...prevState, qualities: target.qualities
             }))
         } else {
             setData((prevState) => ({
@@ -95,7 +95,7 @@ const UserEdit = () => {
                     onChange={handleChange}
                     name='qualities'
                     label="Добавьте ваши качества"
-                    defaultVal={data.qualities}
+                    defaultValue={data.qualities}
                 />
                 <button
                     className="btn bg-primary"
