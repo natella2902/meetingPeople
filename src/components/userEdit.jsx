@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { localStorageId } from './../utils/CONST'
 import propTypes from 'prop-types'
 import TextField from './common/form/textField'
@@ -54,7 +54,7 @@ const UserEdit = () => {
         }
     }
     return (
-        <>
+        <div className="container mt-4">
             <h2>Edit page</h2>
             <form onSubmit={handleSubmit}>
                 <TextField
@@ -102,8 +102,9 @@ const UserEdit = () => {
                 >
                     Submit
                 </button>
+                <Link className="btn btn-secondary ms-4" to={`/users/${userId}`}>Назад</Link>
             </form>
-        </>
+        </div>
 
     )
 }
